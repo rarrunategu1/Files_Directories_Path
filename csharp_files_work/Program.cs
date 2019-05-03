@@ -14,6 +14,9 @@ namespace csharp_files_work
             string path = @"C:\Users\Rose\source\repos\csharp_files_work\csharp_files_work\TextFile1.txt";
             int howManyWords = FileExercises.numberOfWords(path);
             Console.WriteLine("There are {0} words in your text file",howManyWords);
+
+            string longWord = FileExercises.longestWord(path);
+            Console.WriteLine(longWord);
             ////USING FILE
             ////just a var to reuse in different methods
             //string path = @"c:/somefile.jpg";
@@ -81,6 +84,30 @@ namespace csharp_files_work
                     }
             }
             return wordCount;
+        }
+        public static string longestWord(string textFile)
+        {   
+            string longerWord = "";
+            int count = 0;
+            if (File.Exists(textFile))
+            {
+                string content = File.ReadAllText(textFile);
+                string[] split_text = content.Split(new[]{' '}, StringSplitOptions.None);
+
+                foreach (string word in split_text)
+                {
+                if (word.Length > count)
+                {
+                    longerWord = word;
+                  
+        
+                }
+                }
+                Console.WriteLine(longerWord);
+               
+            }
+            return "hello";
+
         }
     }
 }
